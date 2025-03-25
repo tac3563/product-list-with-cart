@@ -1,3 +1,4 @@
-@use "typography";
-@use "colours";
-@use "spacing";
+@use "colours" as *;
+@use "typography" as *;
+@use "base" as *;
+@use "spacing" as *;

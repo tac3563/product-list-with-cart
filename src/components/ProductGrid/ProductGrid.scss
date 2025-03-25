@@ -1,3 +1,36 @@
-h2 {
-  font-size: 20px;
+@use "../../../src/styles/spacing" as *;
+@use "../../../src/styles/colours" as *;
+@use "../../../src/styles/typography" as *;
+
+
+#products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: var(--spacing-400) var(--spacing-300);
+
+  h1 {
+    @include fontStyles('preset-1');
+  }
+
+  .product-image {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-8);
+  }
+
+  .product-category {
+    @include fontStyles('preset-4');
+    color: var(--rose-500);
+    margin: var(--spacing-200) 0 var(--spacing-025);
+  }
+
+  .product-name {
+    @include fontStyles('preset-3');
+    margin: var(--spacing-025) 0;
+  }
+
+  .product-price {
+    margin: var(--spacing-025) 0 0;
+    @include fontStyles('preset-3');
+    color: var(--red);
+  }
 }

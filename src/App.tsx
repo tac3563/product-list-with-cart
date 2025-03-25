@@ -3,10 +3,14 @@ import ProductGrid from "./components/ProductGrid/ProductGrid.tsx";
 function App() {
 
   return (
-    <>
-     <h2>Product list with cart</h2>
-     <ProductGrid/>
-    </>
+      <main id="main-content">
+          <section aria-labelledby="product index">
+              <ProductGrid/>
+          </section>
+          <aside aria-labelledby="cart">
+              Cart
+          </aside>
+      </main>
   )
 }
 
