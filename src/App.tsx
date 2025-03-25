@@ -1,17 +1,14 @@
 import ProductGrid from "./components/ProductGrid/ProductGrid.tsx";
+import Cart from "./components/Cart/Cart.tsx";
+import Layout from "./components/Layout/Layout.tsx";
 
 function App() {
-
   return (
-      <main id="main-content">
-          <section aria-labelledby="product index">
-              <ProductGrid/>
-          </section>
-          <aside aria-labelledby="cart">
-              Cart
-          </aside>
-      </main>
-  )
+    <Layout>
+      <ProductGrid />
+      <Cart />
+    </Layout>
+  );
 }
 
-export default App
+export default App;

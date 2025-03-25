@@ -2,11 +2,13 @@
 @use "../../../src/styles/colours" as *;
 @use "../../../src/styles/typography" as *;
 
+#products-index {
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--spacing-400) var(--spacing-300);
+  }
 
-#products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: var(--spacing-400) var(--spacing-300);
 
   h1 {
     @include fontStyles('preset-1');

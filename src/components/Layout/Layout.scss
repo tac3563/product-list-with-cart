@@ -1,0 +1,22 @@
+@use "../../../src/styles/spacing" as *;
+@use "../../../src/styles/colours" as *;
+@use "../../../src/styles/typography" as *;
+
+#main-content {
+  display: grid;
+  grid-template-areas: "products cart";
+  grid-template-columns: 66.66% 33.33%;
+  grid-gap: var(--spacing-400);
+  max-width: var(--container-max-width);
+  padding: 0 var(--spacing-100);
+  width: 100%;
+  margin: var(--spacing-1100) auto;
+
+  #products-index {
+    grid-area: products;
+  }
+
+  #cart {
+    grid-area: cart;
+  }
+}

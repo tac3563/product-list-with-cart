@@ -1,33 +1,38 @@
-import './ProductGrid.scss';
-import data from '../../data/data.json';
+import "./ProductGrid.scss";
+import data from "../../data/data.json";
 
-export default function ProductGrid () {
-
-    const updatedData = data.map((product) => ({
-        ...product,
-        image: {
-            desktop: product.image.desktop.replace('.', 'src'),
-            tablet: product.image.tablet.replace('.', 'src'),
-            mobile: product.image.mobile.replace('.', 'src'),
-            thumbnail: product.image.thumbnail.replace('.', 'src'),
-        },
-        price: product.price.toLocaleString('en-US', {style: 'currency', currency: 'USD'}),
-    }))
-    return (
-        <>
-        <h1>Desserts</h1>
-            <section id='products-grid'>
-                {updatedData.map((product, index) => (
-                    <div key={index} className="product-card">
-                        <img className='product-image' src={`${product.image.desktop}`}
-                             srcSet={`${product.image.desktop} 1440w, ${product.image.tablet} 768w, ${product.image.mobile} 320w`}
-                             alt={product.name}/>
-                        <p className="product-category">{product.category}</p>
-                        <p className="product-name">{product.name}</p>
-                        <p className="product-price">{product.price}</p>
-                    </div>
-                ))}
-            </section>
-        </>
-    )
+export default function ProductGrid() {
+  const updatedData = data.map((product) => ({
+    ...product,
+    image: {
+      desktop: product.image.desktop.replace(".", "src"),
+      tablet: product.image.tablet.replace(".", "src"),
+      mobile: product.image.mobile.replace(".", "src"),
+      thumbnail: product.image.thumbnail.replace(".", "src"),
+    },
+    price: product.price.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    }),
+  }));
+  return (
+    <section id="products-index" aria-labelledby="product index">
+      <h1 className="product-grid-title">Desserts</h1>
+      <div className="products-grid">
+        {updatedData.map((product, index) => (
+          <div key={index} className="product-card">
+            <img
+              className="product-image"
+              src={`${product.image.desktop}`}
+              srcSet={`${product.image.desktop} 1440w, ${product.image.tablet} 768w, ${product.image.mobile} 320w`}
+              alt={product.name}
+            />
+            <p className="product-category">{product.category}</p>
+            <p className="product-name">{product.name}</p>
+            <p className="product-price">{product.price}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }

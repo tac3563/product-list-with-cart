@@ -1,0 +1,15 @@
+@use "../../../src/styles/spacing" as *;
+@use "../../../src/styles/colours" as *;
+@use "../../../src/styles/typography" as *;
+
+#cart {
+  background-color: var(--white);
+  padding: var(--spacing-300);
+  height: fit-content;
+
+  h2 {
+    @include fontStyles('preset-2');
+    color: var(--red);
+    margin: 0 0 var(--spacing-300);
+  }
+}
