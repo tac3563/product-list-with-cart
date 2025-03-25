@@ -1,0 +1,65 @@
+@use "sass:map";
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/src/assets/fonts/RedHatText-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 1000;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/src/assets/fonts/RedHatText-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-style: italic;
+}
+
+$font-family-red-hat-text: 'Red Hat Text', 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+
+$text-presets: (
+        'preset-1': (
+                font-family: $font-family-red-hat-text,
+                font-size: 40px,
+                line-height: 1.2,
+                letter-spacing: 0,
+                font-weight: 700,
+        ),
+        'preset-2': (
+                font-family: $font-family-red-hat-text,
+                font-size: 24px,
+                line-height: 1.25,
+                letter-spacing: 0,
+                font-weight: 700,
+        ),
+        'preset-3': (
+                font-family: $font-family-red-hat-text,
+                font-size: 16px,
+                line-height: 1.6,
+                letter-spacing: 0,
+                font-weight: 600,
+        ),
+        'preset-4': (
+                font-family: $font-family-red-hat-text,
+                font-size: 14px,
+                line-height: 1.5,
+                letter-spacing: 0,
+                font-weight: 400,
+        ),
+        'preset-4-bold': (
+                font-family: $font-family-red-hat-text,
+                font-size: 14px,
+                line-height: 1.5,
+                letter-spacing: 0,
+                font-weight: 600,
+        ),
+);
+
+@mixin fontStyles($text-preset) {
+  @if map.has-key($text-presets, $text-preset) {
+    $preset: map.get($text-presets, $text-preset);
+    font-family: map.get($preset, font-family);
+    font-size: map.get($preset, font-size);
+    line-height: map.get($preset, line-height);
+    letter-spacing: map.get($preset, letter-spacing);
+    font-weight: map.get($preset, font-weight);
+  }
+}
