@@ -1,5 +1,6 @@
 import "./ProductGrid.scss";
 import data from "../../data/data.json";
+import AddToCart from '../AddToCart/AddToCart.tsx';
 
 export default function ProductGrid() {
   const updatedData = data.map((product) => ({
@@ -27,6 +28,7 @@ export default function ProductGrid() {
               srcSet={`${product.image.desktop} 1440w, ${product.image.tablet} 768w, ${product.image.mobile} 320w`}
               alt={product.name}
             />
+            <AddToCart/>
             <p className="product-category">{product.category}</p>
             <p className="product-name">{product.name}</p>
             <p className="product-price">{product.price}</p>

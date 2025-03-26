@@ -1,0 +1,28 @@
+@use "../../../src/styles/spacing" as *;
+@use "../../../src/styles/colours" as *;
+@use "../../../src/styles/typography" as *;
+
+.add-to-cart-button-wrapper {
+  position: relative;
+  z-index: 1;
+  margin: -32px auto 0;
+  padding: 0 0 var(--spacing-200);
+  display: flex;
+  justify-content: center;
+
+  button {
+    @include fontStyles('preset-4-bold');
+    background-color: var(--white);
+    border: solid 1px var(--rose-400);
+    border-radius: 999px;
+    padding: var(--spacing-150) 28px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+
+    img {
+      max-width: 20px;
+      display: flex;
+    }
+  }
+}
