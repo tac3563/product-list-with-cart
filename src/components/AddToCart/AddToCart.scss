@@ -19,6 +19,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-100);
+    cursor: pointer;
 
     img {
       max-width: 20px;
@@ -39,6 +40,7 @@
     span {
       color: var(--white);
       @include fontStyles('preset-4-bold');
+      cursor: pointer;
     }
   }
 }

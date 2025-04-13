@@ -16,6 +16,7 @@ export default function ProductGrid() {
       currency: "USD",
     }),
   }));
+
   return (
     <section id="products-index" aria-labelledby="product index">
       <h1 className="product-grid-title">Desserts</h1>
