@@ -9,9 +9,9 @@ type AddToCartProps = {
 }
 
 export default function AddToCart({id}: AddToCartProps) {
-    const {isOpen, setIsOpen, counter, increment, decrement} = useStore();
+    const {isOpen, setIsOpen, counters, increment, decrement} = useStore();
 
-    const count = counter[id] || 0;
+    const count = counters[id] || 0;
 
   return (
     <div key={`${id}-quantity-btn-wrapper`} className="add-to-cart-button-wrapper">
@@ -27,11 +27,11 @@ export default function AddToCart({id}: AddToCartProps) {
         {isOpen[id] &&
         <button key={`${id}-quantity-btn`} className='quantity-button'>
             <span>
-                <img key={`${id}-decrement-btn`} onClick={() =>  decrement(id)} src={decrementIcon} alt=""/>
+                <img key={`${id}-decrement-btn`} onClick={() => decrement(id)} src={decrementIcon} alt=""/>
             </span>
             {count}
             <span>
-                <img key={`${id}-increment-btn`} onClick={() => increment(id) } src={incrementIcon} alt=""/>
+                <img key={`${id}-increment-btn`}  src={incrementIcon} onClick={() => increment(id)} alt=""/>
             </span>
         </button>
         }
