@@ -29,7 +29,7 @@ export default function ProductGrid() {
               srcSet={`${product.image.desktop} 1440w, ${product.image.tablet} 768w, ${product.image.mobile} 320w`}
               alt={product.name}
             />
-            <AddToCart id={product.name} key={`${product.name}-button`}/>
+            <AddToCart price={product.price} id={product.name} key={`${product.name}-button`}/>
             <p className="product-category">{product.category}</p>
             <p className="product-name">{product.name}</p>
             <p className="product-price">{product.price}</p>
