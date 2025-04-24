@@ -1,8 +1,9 @@
 import "./Cart.scss";
 import useStore from '../../stores/store.ts';
+import removeIcon from '../../assets/images/icon-remove-item.svg';
 
 export default function Cart() {
-    const {cartList, counters} = useStore();
+    const {cartList, counters, removeItem} = useStore();
     const cartItems = Object.keys(cartList);
 
     return (
@@ -10,9 +11,18 @@ export default function Cart() {
           <h2>
             Your Cart <span>({cartItems.length})</span>
           </h2>
-              <ul>
+              <ul className="cart-list">
                   {cartItems.map((product) => (
-                      <li key={product}>{product} <span>{counters[product]}x</span>  <span>{cartList[product]}</span>
+                      <li className='cart-list-product' key={product}>
+                          <div className="product-inner">
+                              <div className="product-name">     {product}</div>
+                              <div className="product-info">
+                                  <span className="product-info-qty">{counters[product]}x</span>
+                                  <span className="product-info-price">@{cartList[product]}</span>
+                              </div>
+                          </div>
+
+                          <span onClick={() => removeItem(product)}><img src={removeIcon} alt=""/></span>
                       </li>
                   ))}
               </ul>
