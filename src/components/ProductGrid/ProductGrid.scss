@@ -12,6 +12,7 @@
 
   h1 {
     @include fontStyles('preset-1');
+    margin: 0 0 var(--spacing-400);
   }
 
   .product-image {

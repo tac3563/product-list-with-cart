@@ -1,0 +1,66 @@
+@use "../../../../src/styles/spacing" as *;
+@use "../../../../src/styles/colours" as *;
+@use "../../../../src/styles/typography" as *;
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--spacing-300) 0;
+
+  .order-total-figure {
+    @include fontStyles('preset-2');
+    color: var(--rose-900);
+  }
+
+  .order-total-title {
+    @include fontStyles('preset-4');
+  }
+  
+  .order-total-title, .order-total-figure {
+    margin: 0;
+  }
+}
+
+.cart-summary-delivery {
+  margin: var(--spacing-300) 0;
+  background-color: var(--rose-050);
+  padding: var(--spacing-200);
+  border-radius: var(--radius-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include fontStyles('preset-4');
+  
+  p {
+    margin: 0;
+  }
+
+  strong {
+    @include fontStyles('preset-4-bold');
+  }
+
+  .cart-summary-carbon-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 var(--spacing-100) 0 0;
+  }
+
+}
+
+.cart-summary-submit {
+  @include fontStyles('preset-3');
+  background-color: var(--red);
+  color: var(--white);
+  border: solid 1px var(--red);
+  border-radius: 999px;
+  padding: var(--spacing-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100);
+  cursor: pointer;
+  max-width: 336px;
+  width: 100%;
+}
+
