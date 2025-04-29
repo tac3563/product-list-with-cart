@@ -1,5 +1,6 @@
 import {parsePrice} from "../../../helpers/formatting.ts";
 import removeIcon from "../../../assets/images/icon-remove-item.svg";
+import emptyCartIcon from "../../../assets/images/illustration-empty-cart.svg";
 import './CartList.scss';
 
 type CartListProps = {
@@ -23,9 +24,16 @@ export default function CartList({cartItems, cartList, counters, removeItem}: Ca
                         </div>
                     </div>
 
-                    <span onClick={() => removeItem(product)}><img src={removeIcon} alt=""/></span>
+                    <span onClick={() => removeItem(product)}><img src={removeIcon} alt="click to remove product fromc art"/></span>
                 </li>
             ))}
+
+            {cartItems.length < 1 && (
+                <div className='empty-cart'>
+                    <img className="empty-cart-icon" src={emptyCartIcon} alt=""/>
+                    <p className="empty-cart-copy">Your added items will appear here</p>
+                </div>
+            )}
         </ul>
     )
 }

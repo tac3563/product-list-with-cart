@@ -12,4 +12,21 @@
     color: var(--red);
     margin: 0 0 var(--spacing-300);
   }
+
+  .empty-cart {
+    .empty-cart-icon {
+      max-width: 128px;
+      width: 100%;
+      height: auto;
+      display: flex;
+      margin: var(--spacing-200) auto;
+    }
+
+    .empty-cart-copy {
+      @include fontStyles('preset-4-bold');
+      color: var(--rose-500);
+      text-align: center;
+      margin: var(--spacing-200) 0;
+    }
+  }
 }
