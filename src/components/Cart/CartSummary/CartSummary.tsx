@@ -3,10 +3,12 @@ import './CartSummary.scss';
 import iconCarbonNeutral from "../../../assets/images/icon-carbon-neutral.svg";
 
 type CartSummaryProps = {
-    cartTotals: number
+    buttonText: string,
+    cartTotals: number,
+    orderConfirmed?: () => void
 }
 
-export default function CartSummary({cartTotals}:CartSummaryProps) {
+export default function CartSummary({buttonText, cartTotals, orderConfirmed }:CartSummaryProps) {
     return (
         <>
             <div className="order-total">
@@ -28,7 +30,7 @@ export default function CartSummary({cartTotals}:CartSummaryProps) {
                 <p>This is a <strong>carbon-neutral</strong> delivery</p>
             </div>
 
-            <button className='cart-summary-submit'>Confirm Order</button>
+            <button onClick={orderConfirmed} className='cart-summary-submit'>{buttonText}</button>
         </>
     )
 }

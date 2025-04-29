@@ -4,6 +4,8 @@ type Store = {
     cartList: {[id:string]: string},
     isOpen: {[id: string]: boolean},
     counters: {[id: string]: number},
+    orderStatus: boolean,
+    orderConfirmed: () => void,
     increment: (id:string) => void,
     decrement: (id:string) => void,
     addToCart: (id:string, price:string) => void,
@@ -15,6 +17,11 @@ const useStore = create<Store>((set) => (
         cartList: {},
         isOpen: {},
         counters: {},
+        orderStatus: false,
+        orderConfirmed: () => (
+            set((state) => ({ orderStatus: !state.orderStatus})
+            )
+        ),
         increment: (id) => (
             set((state) => ({
                     counters: {
