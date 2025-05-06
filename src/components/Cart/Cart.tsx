@@ -25,8 +25,8 @@ export default function Cart() {
 
             {orderStatus && (
                 <OrderModal>
-                    <CartList cartItems={cartItems} cartList={cartList} counters={counters} removeItem={removeItem} />
-                    <CartSummary buttonText='Start New Order' cartTotals={cartTotals} />
+                    <CartList orderStatus={orderStatus} cartItems={cartItems} cartList={cartList} counters={counters} />
+                    <CartSummary orderStatus={orderStatus} buttonText='Start New Order' cartTotals={cartTotals} />
                 </OrderModal>
             )}
         </aside>

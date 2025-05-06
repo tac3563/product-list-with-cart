@@ -3,12 +3,13 @@ import './CartSummary.scss';
 import iconCarbonNeutral from "../../../assets/images/icon-carbon-neutral.svg";
 
 type CartSummaryProps = {
+    orderStatus?: boolean,
     buttonText: string,
     cartTotals: number,
     orderConfirmed?: () => void
 }
 
-export default function CartSummary({buttonText, cartTotals, orderConfirmed }:CartSummaryProps) {
+export default function CartSummary({orderStatus, buttonText, cartTotals, orderConfirmed }:CartSummaryProps) {
     return (
         <>
             <div className="order-total">
@@ -25,10 +26,13 @@ export default function CartSummary({buttonText, cartTotals, orderConfirmed }:Ca
                     </motion.p>
                 </AnimatePresence>
             </div>
-            <div className='cart-summary-delivery'>
-                <img className='cart-summary-carbon-icon' src={iconCarbonNeutral} alt=""/>
-                <p>This is a <strong>carbon-neutral</strong> delivery</p>
-            </div>
+
+            {!orderStatus && (
+                <div className='cart-summary-delivery'>
+                    <img className='cart-summary-carbon-icon' src={iconCarbonNeutral} alt=""/>
+                    <p>This is a <strong>carbon-neutral</strong> delivery</p>
+                </div>
+            )}
 
             <button onClick={orderConfirmed} className='cart-summary-submit'>{buttonText}</button>
         </>

@@ -4,13 +4,14 @@ import emptyCartIcon from "../../../assets/images/illustration-empty-cart.svg";
 import './CartList.scss';
 
 type CartListProps = {
+    orderStatus?: boolean,
     cartItems: string[],
     cartList: {[id:string]: string},
     counters: {[id: string]: number},
-    removeItem: (id:string) => void
+    removeItem?: (id:string) => void
 }
 
-export default function CartList({cartItems, cartList, counters, removeItem}: CartListProps) {
+export default function CartList({orderStatus, cartItems, cartList, counters, removeItem}: CartListProps) {
     return (
         <ul className="cart-list">
             {cartItems.map((product) => (
@@ -20,11 +21,29 @@ export default function CartList({cartItems, cartList, counters, removeItem}: Ca
                         <div className="product-info">
                             <span className="product-info-qty">{counters[product]}x</span>
                             <span className="product-info-price">@{cartList[product]}</span>
-                            <span className="product-info-total">${(parsePrice(cartList[product]) * counters[product]).toFixed(2)}</span>
+                            {!orderStatus && (
+                                <span
+                                    className="product-info-total">${(parsePrice(cartList[product]) * counters[product]).toFixed(2)}</span>
+
+                            )}
+
+                            {/*{!orderStatus && (*/}
+                            {/*    <img src={} />*/}
+
+                            {/*)}*/}
+
                         </div>
+
+                        {orderStatus && (
+                            <span
+                                className="product-info-total">${(parsePrice(cartList[product]) * counters[product]).toFixed(2)}</span>
+                        )}
                     </div>
 
-                    <span onClick={() => removeItem(product)}><img src={removeIcon} alt="click to remove product fromc art"/></span>
+                    {removeItem && (
+                        <span onClick={() => removeItem(product)}><img src={removeIcon}
+                                                                       alt="click to remove product fromc art"/></span>
+                    )}
                 </li>
             ))}
 
