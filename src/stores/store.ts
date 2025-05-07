@@ -1,14 +1,19 @@
 import {create} from 'zustand';
 
+type CartItem = {
+    thumbnail: string,
+    price: string
+}
+
 type Store = {
-    cartList: {[id:string]: string},
+    cartList: {[id:string]:CartItem},
     isOpen: {[id: string]: boolean},
     counters: {[id: string]: number},
     orderStatus: boolean,
     orderConfirmed: () => void,
     increment: (id:string) => void,
     decrement: (id:string) => void,
-    addToCart: (id:string, price:string) => void,
+    addToCart: (cartThumbnail: string, id:string, price:string) => void,
     removeItem: (id:string) => void
 }
 
@@ -41,7 +46,7 @@ const useStore = create<Store>((set) => (
                 }
             ))
         ),
-        addToCart: (id, price) => (
+        addToCart: (thumbnail, id, price) => (
             set((state) => (
                 {
                     isOpen: {
@@ -50,7 +55,10 @@ const useStore = create<Store>((set) => (
                     },
                     cartList: {
                         ...state.cartList,
-                        [id]: price
+                        [id]: {
+                            price,
+                            thumbnail
+                        }
                     },
                     counters: {
                         ...state.counters,

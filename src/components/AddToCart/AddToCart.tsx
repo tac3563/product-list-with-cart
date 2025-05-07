@@ -5,11 +5,12 @@ import decrementIcon from "/src/assets/images/icon-decrement-quantity.svg"
 import useStore from '../../stores/store.ts';
 
 type AddToCartProps = {
+    thumbnail: string,
     id: string,
     price: string
 }
 
-export default function AddToCart({id, price}: AddToCartProps) {
+export default function AddToCart({thumbnail, id, price}: AddToCartProps) {
     const {isOpen, addToCart, counters, increment, decrement} = useStore();
 
     const count = counters[id] ?? 0;
@@ -17,7 +18,7 @@ export default function AddToCart({id, price}: AddToCartProps) {
   return (
     <div key={`${id}-quantity-btn-wrapper`} className="add-to-cart-button-wrapper">
         {!isOpen[id] &&
-          <button onClick={() => addToCart(id, price)} className='add-to-cart-button'>
+          <button onClick={() => addToCart(thumbnail, id, price)} className='add-to-cart-button'>
             <span>
               <img src={addToCartIcon} alt="cart icon" />
             </span>

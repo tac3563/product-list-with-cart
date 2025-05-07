@@ -34,9 +34,23 @@
             padding: 0 0 var(--spacing-300);
           }
 
-          .product-info-total {
-            color: var(--rose-900);
-            @include fontStyles('preset-3');
+          .product-inner {
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+
+            .product-thumbnail {
+              width: 48px;
+              height: 48px;
+              border-radius: var(--radius-4);
+              margin: 0 var(--spacing-200) 0 0;
+            }
+
+            .product-info-total {
+              color: var(--rose-900);
+              @include fontStyles('preset-3');
+              margin-left: auto;
+            }
           }
         }
       }

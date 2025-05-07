@@ -13,6 +13,10 @@ body {
   color: var(--rose-900);
   font-family: $font-family-red-hat-text;
 
+  &:has(.order-modal) {
+    overflow: hidden;
+  }
+
   h1 {
     @include fontStyles('preset-1');
     margin: var(--spacing-400) 0;

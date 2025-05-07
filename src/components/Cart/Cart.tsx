@@ -9,7 +9,7 @@ export default function Cart() {
     const {cartList, counters, orderStatus, orderConfirmed, removeItem} = useStore();
     const cartItems = Object.keys(cartList);
 
-    const cartTotals = cartItems.reduce((total, product) => total + (parsePrice(cartList[product]) * counters[product]), 0)
+    const cartTotals = cartItems.reduce((total, product) => total + (parsePrice(cartList[product].price) * counters[product]), 0)
 
     return (
         <aside id="cart" aria-labelledby="cart">
