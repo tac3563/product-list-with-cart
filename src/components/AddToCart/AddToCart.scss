@@ -1,6 +1,7 @@
 @use "../../../src/styles/spacing" as *;
 @use "../../../src/styles/colours" as *;
 @use "../../../src/styles/typography" as *;
+@use "../../../src/styles/misc" as *;
 
 .add-to-cart-button-wrapper {
   position: relative;
@@ -19,10 +20,15 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-100);
-    cursor: pointer;
     max-width: 160px;
     width: 100%;
     height: 44px;
+    transition: var(--hover-transition);
+
+    &:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
 
     img {
       max-width: 20px;
@@ -30,6 +36,10 @@
       height: auto;
       display: flex;
     }
+  }
+
+  .add-to-cart-button {
+    cursor: pointer;
   }
 
   .quantity-button {
@@ -41,13 +51,33 @@
     justify-content: space-between;
     padding: var(--spacing-150);
 
+    &:hover {
+      color: var(--white);
+      border-color: var(--red);
+    }
+
     span {
       color: var(--white);
       @include fontStyles('preset-4-bold');
       cursor: pointer;
+      display: flex;
 
-      > img {
-        padding: var(--spacing-050);
+      > svg {
+        transition: var(--hover-transition);
+      }
+
+      &:hover {
+        svg {
+          circle {
+            fill: white;
+          }
+
+          > path {
+            &:nth-of-type(2) {
+              fill: var(--red);
+            }
+          }
+        }
       }
     }
   }

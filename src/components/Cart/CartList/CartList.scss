@@ -47,10 +47,17 @@
   }
 
   span {
-    img {
+    svg {
       width: 20px;
       height: 20px;
       cursor: pointer;
+      transition: var(--hover-transition);
+
+      &:hover {
+        path {
+          fill: var(--rose-900);
+        }
+      }
     }
   }
 }

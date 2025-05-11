@@ -9,14 +9,13 @@
     grid-gap: var(--spacing-400) var(--spacing-300);
   }
 
-
   h1 {
     @include fontStyles('preset-1');
     margin: 0 0 var(--spacing-400);
   }
 
   .product-image {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 250 / 240;
     border-radius: var(--radius-8);
   }
 
