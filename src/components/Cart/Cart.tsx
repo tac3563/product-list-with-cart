@@ -1,4 +1,5 @@
 import "./Cart.scss";
+import { motion, AnimatePresence } from "framer-motion";
 import useStore from '../../stores/store.ts';
 import {parsePrice} from '../../helpers/formatting.ts';
 import CartSummary  from  './CartSummary/CartSummary.tsx';
@@ -17,18 +18,30 @@ export default function Cart() {
             Your Cart <span>({cartItems.length})</span>
           </h2>
 
-            <CartList cartItems={cartItems} cartList={cartList} counters={counters} removeItem={removeItem} />
+            <CartList key='productCart' cartItems={cartItems} cartList={cartList} counters={counters} removeItem={removeItem} />
 
             {cartItems.length > 0 &&
-                <CartSummary orderConfirmed={orderConfirmed} buttonText='Confirm Order' cartTotals={cartTotals} />
+                <CartSummary key='productSummary' orderConfirmed={orderConfirmed} buttonText='Confirm Order' cartTotals={cartTotals} />
             }
 
-            {orderStatus && (
-                <OrderModal>
-                    <CartList orderStatus={orderStatus} cartItems={cartItems} cartList={cartList} counters={counters} />
-                    <CartSummary orderStatus={orderStatus} buttonText='Start New Order' cartTotals={cartTotals} />
-                </OrderModal>
-            )}
+            <AnimatePresence>
+                {orderStatus && (
+                    <motion.div
+                        key="orderModal"
+                        className="order-modal"
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                    >
+                        <OrderModal>
+                            <CartList key='orderCart' orderStatus={orderStatus} cartItems={cartItems}
+                                      cartList={cartList} counters={counters}/>
+                            <CartSummary key='orderSummary' orderStatus={orderStatus} buttonText='Start New Order'
+                                         cartTotals={cartTotals}/>
+                        </OrderModal>
+                    </motion.div>
+                    )}
+            </AnimatePresence>
         </aside>
-    );
+);
 }

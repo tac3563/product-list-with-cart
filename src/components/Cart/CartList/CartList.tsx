@@ -2,6 +2,7 @@ import {parsePrice} from "../../../helpers/formatting.ts";
 import removeIcon from "../../../assets/images/icon-remove-item.svg";
 import emptyCartIcon from "../../../assets/images/illustration-empty-cart.svg";
 import './CartList.scss';
+import {AnimatePresence, motion} from 'framer-motion';
 
 type CartListProps = {
     orderStatus?: boolean,
@@ -38,9 +39,15 @@ export default function CartList({orderStatus, cartItems, cartList, counters, re
                             </>
                         )}
 
+                        <AnimatePresence>
+
                         {!orderStatus && (
-                            <>
-                            <div className="product-name">{product}</div>
+                            <motion.div
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                exit={{opacity: 0}}
+                            >
+                                <div className="product-name">{product}</div>
                                 <div className="product-info">
                                     <span className="product-info-qty">{counters[product]}x</span>
                                     <span className="product-info-price">@{cartList[product].price}</span>
@@ -49,8 +56,9 @@ export default function CartList({orderStatus, cartItems, cartList, counters, re
                                             className="product-info-total">${(parsePrice(cartList[product].price) * counters[product]).toFixed(2)}</span>
                                     )}
                                 </div>
-                            </>
+                            </motion.div>
                         )}
+                    </AnimatePresence>
 
                     </div>
 
