@@ -6,10 +6,11 @@ type CartSummaryProps = {
     orderStatus?: boolean,
     buttonText: string,
     cartTotals: number,
-    orderConfirmed?: () => void
+    orderConfirmed?: () => void,
+    clearCart?: () => void
 }
 
-export default function CartSummary({orderStatus, buttonText, cartTotals, orderConfirmed }:CartSummaryProps) {
+export default function CartSummary({orderStatus, buttonText, cartTotals, orderConfirmed, clearCart }:CartSummaryProps) {
     return (
         <>
             <div className="order-total">
@@ -34,7 +35,13 @@ export default function CartSummary({orderStatus, buttonText, cartTotals, orderC
                 </div>
             )}
 
-            <button onClick={orderConfirmed} className='cart-summary-submit'>{buttonText}</button>
+            {!orderStatus && (
+                <button onClick={orderConfirmed} className='cart-summary-submit'>{buttonText}</button>
+            )}
+
+            {orderStatus && (
+                <button onClick={clearCart} className='cart-summary-submit'>{buttonText}</button>
+            )}
         </>
     )
 }

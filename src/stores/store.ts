@@ -11,6 +11,7 @@ type Store = {
     counters: {[id: string]: number},
     orderStatus: boolean,
     orderConfirmed: () => void,
+    clearCart: () => void,
     increment: (id:string) => void,
     decrement: (id:string) => void,
     addToCart: (cartThumbnail: string, id:string, price:string) => void,
@@ -26,6 +27,14 @@ const useStore = create<Store>((set) => (
         orderConfirmed: () => (
             set((state) => ({ orderStatus: !state.orderStatus})
             )
+        ),
+        clearCart: () => (
+                set(() => ({
+                    orderStatus: false,
+                    cartList: {},
+                    counters: {},
+                    isOpen: {},
+                }))
         ),
         increment: (id) => (
             set((state) => ({

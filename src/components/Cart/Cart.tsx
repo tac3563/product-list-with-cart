@@ -7,7 +7,7 @@ import CartList  from  './CartList/CartList.tsx';
 import OrderModal from '../OrderModal/OrderModal.tsx';
 
 export default function Cart() {
-    const {cartList, counters, orderStatus, orderConfirmed, removeItem} = useStore();
+    const {cartList, counters, orderStatus, orderConfirmed, clearCart, removeItem} = useStore();
     const cartItems = Object.keys(cartList);
 
     const cartTotals = cartItems.reduce((total, product) => total + (parsePrice(cartList[product].price) * counters[product]), 0)
@@ -37,7 +37,7 @@ export default function Cart() {
                             <CartList key='orderCart' orderStatus={orderStatus} cartItems={cartItems}
                                       cartList={cartList} counters={counters}/>
                             <CartSummary key='orderSummary' orderStatus={orderStatus} buttonText='Start New Order'
-                                         cartTotals={cartTotals}/>
+                                         cartTotals={cartTotals} clearCart={clearCart}/>
                         </OrderModal>
                     </motion.div>
                     )}
