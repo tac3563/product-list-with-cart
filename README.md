@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# 🍰 Dessert Shop – React E-Commerce UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, animated dessert shop frontend built with **Vite**, **React**, and **TypeScript**. Users can browse a curated list of desserts, add items to a cart, and confirm orders with a smooth, animated checkout experience.
 
-Currently, two official plugins are available:
+![Preview Screenshot](./screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🛍️ **Product Grid** — Clean, responsive layout of dessert products with dynamic image sources per device size built with CSS Grid.
+- 🛒 **Shopping Cart** — Add/remove items with quantity tracking and real-time price updates.
+- ✅ **Order Confirmation Modal** — Smoothly animated modal for displaying an order confirmation to the user.
+- 🎨 **Responsive Design** — Mobile-first styling with SCSS.
+- ⚙️ **Modern Tech Stack** — Vite, React, TypeScript, SCSS, Framer Motion.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🧱 Tech Stack
+
+| Tool            | Purpose                                      |
+|-----------------|----------------------------------------------|
+| [Vite](https://vitejs.dev/)         | Fast dev server & build tool                 |
+| [React](https://reactjs.org/)       | UI Library                                  |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe JavaScript                         |
+| [SCSS](https://sass-lang.com/)      | Styling with variables and nesting          |
+| [Framer Motion](https://www.framer.com/motion/) | Animations and transitions                  |
+
+---
+
+## 📦 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/yourusername/dessert-shop.git
+cd dessert-shop
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Run the build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
