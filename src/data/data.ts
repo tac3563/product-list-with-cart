@@ -1,4 +1,3 @@
-// Image Imports
 import waffleThumbnail from "../assets/images/image-waffle-thumbnail.jpg";
 import waffleMobile from "../assets/images/image-waffle-mobile.jpg";
 import waffleTablet from "../assets/images/image-waffle-tablet.jpg";

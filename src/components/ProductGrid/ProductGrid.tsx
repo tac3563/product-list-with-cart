@@ -5,12 +5,6 @@ import AddToCart from '../AddToCart/AddToCart.tsx';
 export default function ProductGrid() {
   const updatedData = data.map((product) => ({
     ...product,
-    image: {
-      desktop: product.image.desktop.replace(".", "dist"),
-      tablet: product.image.tablet.replace(".", "dist"),
-      mobile: product.image.mobile.replace(".", "dist"),
-      thumbnail: product.image.thumbnail.replace(".", "dist"),
-    },
     price: product.price.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
