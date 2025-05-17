@@ -1,3 +1,6 @@
+$media-md: 768px;
+$media-lg: 1440px;
+
 :root {
   /* Spacing */
   --spacing-050: 4px;
@@ -18,8 +21,4 @@
 
   /* Max Widths */
   --container-max-width: 1200px;
-
-  /* Media Queries */
-  --media-md: 768px;
-  --media-lg: 1440px;
 }

@@ -12,6 +12,7 @@ html {
 body {
   color: var(--rose-900);
   font-family: $font-family-red-hat-text;
+  margin: 0;
 
   &:has(.order-modal) {
     overflow: hidden;

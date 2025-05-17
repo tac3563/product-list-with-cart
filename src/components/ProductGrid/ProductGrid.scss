@@ -3,9 +3,13 @@
 @use "../../../src/styles/typography" as *;
 
 #products-index {
+  @media(min-width: $media-md) {
+    margin: 0 var(--spacing-400) 0 0;
+  }
+
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: var(--spacing-400) var(--spacing-300);
   }
 
@@ -22,16 +26,16 @@
   .product-category {
     @include fontStyles('preset-4');
     color: var(--rose-500);
-    margin: var(--spacing-200) 0 var(--spacing-025);
+    margin: 0 0 var(--spacing-050);
   }
 
   .product-name {
     @include fontStyles('preset-3');
-    margin: var(--spacing-025) 0;
+    margin: 0 0 var(--spacing-050);
   }
 
   .product-price {
-    margin: var(--spacing-025) 0 0;
+    margin: 0 0 var(--spacing-050) ;
     @include fontStyles('preset-3');
     color: var(--red);
   }

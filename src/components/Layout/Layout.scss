@@ -4,19 +4,19 @@
 
 #main-content {
   display: grid;
-  grid-template-areas: "products cart";
-  grid-template-columns: 66.66% 33.33%;
-  grid-gap: var(--spacing-400);
+  grid-template-columns: 1fr;
+  grid-row-gap: var(--spacing-400);
   max-width: var(--container-max-width);
-  padding: 0 var(--spacing-100);
-  width: 100%;
-  margin: var(--spacing-1100) auto;
+  padding: 0 var(--spacing-300);
+  margin: var(--spacing-300) auto;
 
-  #products-index {
-    grid-area: products;
+  @media (min-width: $media-md) {
+    grid-template-columns: 66.66% 33.33%;
+    margin: var(--spacing-500) auto;
+    padding: 0 var(--spacing-500);
   }
 
-  #cart {
-    grid-area: cart;
+  @media(min-width: $media-lg) {
+    margin: var(--spacing-1100) auto;
   }
 }
