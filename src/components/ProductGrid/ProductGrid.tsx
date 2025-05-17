@@ -6,10 +6,10 @@ export default function ProductGrid() {
   const updatedData = data.map((product) => ({
     ...product,
     image: {
-      desktop: product.image.desktop.replace(".", "src"),
-      tablet: product.image.tablet.replace(".", "src"),
-      mobile: product.image.mobile.replace(".", "src"),
-      thumbnail: product.image.thumbnail.replace(".", "src"),
+      desktop: product.image.desktop.replace(".", "dist"),
+      tablet: product.image.tablet.replace(".", "dist"),
+      mobile: product.image.mobile.replace(".", "dist"),
+      thumbnail: product.image.thumbnail.replace(".", "dist"),
     },
     price: product.price.toLocaleString("en-US", {
       style: "currency",
