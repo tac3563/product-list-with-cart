@@ -1,5 +1,5 @@
 import "./ProductGrid.scss";
-import data from "../../data/data.json";
+import data from "../../data/data.ts";
 import AddToCart from '../AddToCart/AddToCart.tsx';
 
 export default function ProductGrid() {
